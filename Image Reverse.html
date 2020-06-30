@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Picture Flip</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+<div id="content">
+<iframe data-aa='160485' src='https://ad.a-ads.com/160485?size=468x60' scrolling='no' style='width:468px; height:60px; border:0px; padding:0;overflow:hidden' allowtransparency='true' frameborder='0'></iframe><br>
+<script>
+jQuery.fn.center = function () {
+    this.css("position","absolute");
+    this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + 
+                                                $(window).scrollTop()) + "px");
+    this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + 
+                                                $(window).scrollLeft()) + "px");
+    return this;
+}
+function previewFile(){
+   var preview = document.querySelector('img'); //selects the query named img
+   var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+   var reader  = new FileReader();
+
+   reader.onloadend = function () {
+	   preview.src = reader.result;
+   }
+
+   if (file) {
+	   reader.readAsDataURL(file); //reads the data as a URL
+   } else {
+	   preview.src = "";
+   }
+}
+
+previewFile();  //calls the function named previewFile()
+</script>
+<input type="file"><br>
+<button onclick="previewFile()">Submit</button>
+<br><hr>
+<img src="" alt="Image preview..."><hr>
+<br><iframe data-aa='160485' src='https://ad.a-ads.com/160485?size=468x60' scrolling='no' style='width:468px; height:60px; border:0px; padding:0;overflow:hidden' allowtransparency='true' frameborder='0'></iframe>
+<style>
+img {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+}
+</style>
+</div>
+<script>
+$(#content).center();
+</script>
+</body>
+</html>
