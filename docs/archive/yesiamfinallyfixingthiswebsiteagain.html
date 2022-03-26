@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Jacoder23</title>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+       (adsbygoogle = window.adsbygoogle || []).push({
+       google_ad_client: "ca-pub-3082884718021733",
+       enable_page_level_ads: true
+     });
+     </script>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div id="msg">
+        <p>Intel HD 4000! Left 4 Dead 2! Fallout New Vegas!</p>
+    </div>
+    <h3>
+      <a href="" class="typewrite" data-period="25000" data-type='[ "Hi, there.<br>Where would you like to start?&nbsp;" ]'>
+      <span class="wrap"></span>
+      </a>
+    </h3>
+    <h3>
+      <a href="mailto:tcpooljacob@gmail.com?Subject=Hi,%20there!" class="typewrite" data-period="5000" data-type='[ "Email?&nbsp;" ]'>
+      <span class="wrap"></span>
+      </a>
+    </h3>
+    <h3>
+      <a href="https://neocities.org/site/jacoder23" class="typewrite" data-period="5000" data-type='[ "Follow?&nbsp;" ]'>
+      <span class="wrap"></span>
+      </a>
+    </h3>
+    <h3>
+      <a href="http://jacoder23.neocities.org/oldish.html" class="typewrite" data-period="4500" data-type='[ "Legacy&nbsp;" ]'>
+      <span class="wrap"></span>
+      </a>
+    </h3>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="http://jacoder23.neocities.org">Homepage</a>
+      <a href="http://jacoder23.neocities.org/lvlup.html">Little Virus Laboratory 2.0</a>
+      <a href="http://jacoder23.neocities.org/update1.html">3d Game Engine Protoype</a>
+      <a href="http://neocities.org/site/jacoder23">Neocities</a>
+    </div>
+    <span style="cursor:pointer;color:#0088BB" onclick="openNav()"><h3>
+      <a class="typewrite" data-period="4500" data-type='[ "Projects&nbsp;" ]'>
+      <span class="wrap"></span>
+      </a>
+    </h3></span>
+    
+
+    <script>
+
+    var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        }
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #00FF00}";
+        document.body.appendChild(css);
+    };
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "100%";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+
+    </script>
+    <style>
+      body {
+        background-color:#000;
+        font-family: Consolas;
+        text-align: center;
+        padding-top:10em;
+      }
+      
+    #current{
+        position:absolute;
+        right: 40px; 
+        top: 40px; 
+    }
+    
+    #advert1{
+    
+        position:absolute;
+        right: 40px; 
+        bottom: 40px;
+     
+    }
+    
+    img {
+            image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+            image-rendering: -moz-crisp-edges;          /* Firefox                        */
+            image-rendering: -o-crisp-edges;            /* Opera                          */
+            image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+            image-rendering: pixelated; /* Chrome */
+            image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+            -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+        }
+        
+    #msg {
+            position:absolute; 
+            left: 10px; 
+            bottom: 10px; 
+            font-family: Consolas;
+            text-align: center;
+            font-size: 5px;
+    }
+    
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #008800;
+    display: block;
+    transition: 0.3s;
+
+}
+
+.sidenav a:hover{
+    color: #00FF00;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+      * { color:#00FF00; text-decoration: none;}
+    </style>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Index1 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3082884718021733"
+     data-ad-slot="4242064168"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<script>
+$.get( "https://jacoder23.neocities.org/justignoreme.txt", function( data ) {
+  var text = data;
+  console.log(text.split("\n"));
+  var idunnowhatdoyouwantdontmindmeimjustsomevariable = Math.round(Math.random()*10)+1;
+  document.getElementById("msg").innerHTML = text.split("\n").slice(Math.round(Math.random()*5) + 1, idunnowhatdoyouwantdontmindmeimjustsomevariable + 1);
+});
+</script>
+  </body>
+</html>

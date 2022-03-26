@@ -1,0 +1,4 @@
+User-Agent: *
+Disallow: 
+
+Sitemap: http://jacoder23.neocities.org/sitemap.xml

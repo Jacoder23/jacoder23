@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<button id="MQ" onClick="onReset(message,q)">Ask me a question stranger, then press my button to get my answer!</button>
+<script>
+var message = ["Yes!","Sorry No.","Definitely!","Please tell me that again.","Thankfully no.","Luckily yes!","Probably.","Probably Not.","Unlikely.","Perhaps.","Maybe."];
+var q = 11;
+function onReset(message,q){
+var randomNumber = Math.round(Math.random()*q+1);
+message = message[randomNumber];
+switch(message){
+  case undefined: message = "Probably";
+  break;
+}
+document.getElementById("MQ").innerHTML = message;
+}
+</script>
+<style>
+body {background: url(https://dl.dropboxusercontent.com/s/953nlrvevldk6xz/blrs.png);}
+button {color: white; font-size: 48px; cursor: pointer; display: block; margin-left: auto; margin-right: auto; border: 3px solid black; background-color: #44f; box-shadow: 0px 0px 8px black inset;
+margin-top: 50%;
+margin-bottom: 50%;
+}button:hover {background-color: #66f;}
+</style>
+</html>

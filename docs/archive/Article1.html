@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Jacoder23</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Share+Tech+Mono" rel="stylesheet">
+		<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+	</head>
+	<body>
+		
+		<div id="part1">
+			<h2>Pakistani Brain, Elk Cloners and Apple IIs</h2> <p>[Off the Schedule][Will Be Continued]</p>
+			<br><p>
+			Viruses.
+			<br><br>
+			Malicious code that crawls through your computer like a disease.
+			<br><br>
+			Able to multiple infinitely, at least until your hard drive ran out of space.
+			<br><br>
+			These early malware was the stuff of nightmares. Terrifying, businesses and consumers alike. These were made originally out of curiosity, but like all new technology, soon less benign viruses poisoned the crop.
+			<hr>
+			Nowadays, with the advent of Ransomware and Backdoors, viruses have long fazed out in favor of more modern pathogens.
+			<br><br>
+			But, that doesn't mean that you still can't cause some mayhem with it.
+			<hr>
+			So, for this week's Off the Schedule we're going to ask:
+			<br><br>
+			What do they do?
+			<br><br>
+			When did they end?
+			<br><br>
+			And who was the sadist who started all of this?
+			</p>
+		</div>
+		<hr><br><hr>
+		<div id="part2">
+			<p>In 1986, two brothers, Basit and Amjad Alvi programmed the first IBM PC virus.
+			
+			<br><br>The Pakistani Brain.<br><br>
+			
+			It deletes the boot sector of any floppy disk on your PC and replaces it with it's own code.<br><br> Ruining your floppy disk and spreading the virus to any computer that uses the infected disk.<br>
+			
+			</p>
+		</div>
+		
+		<hr><div id="center">Welcome to the Dungeon.</div><hr>
+		
+		<div id="part3"><p><br>Boot sectors are the parts of either your floppy disk or hard drive that are executed before everything else to prepare the disk.<p></div>
+		<div id="part3"><p>By overwriting the boot sector the virus can infect any computer that uses the floppy drive.<p></div>
+		<div id="part3"><p>This program was originally used to track a heart monitoring program for the IBM PC, and pirates were distributing copies of the disks.<p></div>
+		<div id="part3"><p>This tracking program was supposed to stop and track illegal copies of the disk, however the program also sometimes used the last 5k on an Apple floppy, making additional saves to the disk by other programs impossible.<p></div>
+
+		<script>
+
+		var TxtType = function(el, toRotate, period) {
+				this.toRotate = toRotate;
+				this.el = el;
+				this.loopNum = 0;
+				this.period = parseInt(period, 10) || 2000;
+				this.txt = '';
+				this.tick();
+				this.isDeleting = false;
+		};
+
+		TxtType.prototype.tick = function() {
+				var i = this.loopNum % this.toRotate.length;
+				var fullTxt = this.toRotate[i];
+
+				if (this.isDeleting) {
+				this.txt = fullTxt.substring(0, this.txt.length - 1);
+				} else {
+				this.txt = fullTxt.substring(0, this.txt.length + 1);
+				}
+
+				this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+				var that = this;
+				var delta = 200 - Math.random() * 100;
+
+				if (this.isDeleting) { delta /= 2; }
+
+				if (!this.isDeleting && this.txt === fullTxt) {
+				delta = this.period;
+				this.isDeleting = true;
+				} else if (this.isDeleting && this.txt === '') {
+				this.isDeleting = false;
+				this.loopNum++;
+				delta = 500;
+				}
+
+				setTimeout(function() {
+				that.tick();
+				}, delta);
+		};
+
+		window.onload = function() {
+				var elements = document.getElementsByClassName('typewrite');
+				for (var i=0; i<elements.length; i++) {
+						var toRotate = elements[i].getAttribute('data-type');
+						var period = elements[i].getAttribute('data-period');
+						if (toRotate) {
+							new TxtType(elements[i], JSON.parse(toRotate), period);
+						}
+				}
+				// INJECT CSS
+				var css = document.createElement("style");
+				css.type = "text/css";
+				css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #00FF00}";
+				document.body.appendChild(css);
+		};
+
+		</script>
+		<style>
+		body {
+			background-color:#000;
+			font-family: "Consolas";
+			padding-top:10em;
+		}
+		hr {
+			border-top: 3px dashed;
+			border-bottom: 0px;
+			color: #00ff00;
+		}
+		#part1 {
+			color:#00FF00;
+			text-align: left;
+		}
+		#part2 {
+			color:#FF0000;
+			text-align: center;
+		}
+		#part3 {
+			color:#0000FF;
+			text-align: left;
+		}
+		#part4 {
+			color:#FF0000;
+			text-align: left;
+		}
+		#part5 {
+			color:#00FF00;
+			text-align: left;
+		}
+		#center {
+			color:#00FF00;
+			text-align: center;
+		}
+
+			* { text-decoration: none;}
+		</style>
+	</body>
+</html>
