@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Jacoder23</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Share+Tech+Mono" rel="stylesheet">
+		<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+	</head>
+	<body>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<div id="part1">
+			<p>In 3 weeks, there is going to be a competetion named <a href="http://js13kgames.com/">JS13K Games</a> and over 30 days, you will be given a theme and must create a game in JavaScript including this theme.</p>
+			<p>It would be pretty simple to do, but the game must be less than 13 kilobytes. In comparison, my entire site is over a hundred times as big.</p>
+			<p>I am going to be making a game for this, but since it's not here yet so for now I'm only going to work ont he engine for my entry (which will be in 3d).</p>
+			<hr/>
+			<a href="http://jacoder23.neocities.org/3dengine.html">Here it is.</a>
+			<hr/>
+			<a href="http://www.playfuljs.com/a-first-person-engine-in-265-lines/">So, far all I've done is removed (and exchanged for lower res) textures and stripped out some uneeded code from this engine.</a>
+		</div>
+		<script>
+
+		var TxtType = function(el, toRotate, period) {
+				this.toRotate = toRotate;
+				this.el = el;
+				this.loopNum = 0;
+				this.period = parseInt(period, 10) || 2000;
+				this.txt = '';
+				this.tick();
+				this.isDeleting = false;
+		};
+
+		TxtType.prototype.tick = function() {
+				var i = this.loopNum % this.toRotate.length;
+				var fullTxt = this.toRotate[i];
+
+				if (this.isDeleting) {
+				this.txt = fullTxt.substring(0, this.txt.length - 1);
+				} else {
+				this.txt = fullTxt.substring(0, this.txt.length + 1);
+				}
+
+				this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+				var that = this;
+				var delta = 200 - Math.random() * 100;
+
+				if (this.isDeleting) { delta /= 2; }
+
+				if (!this.isDeleting && this.txt === fullTxt) {
+				delta = this.period;
+				this.isDeleting = true;
+				} else if (this.isDeleting && this.txt === '') {
+				this.isDeleting = false;
+				this.loopNum++;
+				delta = 500;
+				}
+
+				setTimeout(function() {
+				that.tick();
+				}, delta);
+		};
+
+		window.onload = function() {
+				var elements = document.getElementsByClassName('typewrite');
+				for (var i=0; i<elements.length; i++) {
+						var toRotate = elements[i].getAttribute('data-type');
+						var period = elements[i].getAttribute('data-period');
+						if (toRotate) {
+							new TxtType(elements[i], JSON.parse(toRotate), period);
+						}
+				}
+				// INJECT CSS
+				var css = document.createElement("style");
+				css.type = "text/css";
+				css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #00FF00}";
+				document.body.appendChild(css);
+		};
+
+		</script>
+		<style>
+		body {
+			background-color:#000;
+			font-family: "Consolas";
+			padding-top:10em;
+		}
+		hr {
+			border-top: 3px dashed;
+			border-bottom: 0px;
+			color: #00ff00;
+		}
+		#part1 {
+			color:#00FF00;
+			text-align: left;
+		}
+		#part2 {
+			color:#FF0000;
+			text-align: center;
+		}
+		#part3 {
+			color:#0000FF;
+			text-align: left;
+		}
+		#part4 {
+			color:#FF0000;
+			text-align: left;
+		}
+		#part5 {
+			color:#00FF00;
+			text-align: left;
+		}
+		#center {
+			color:#00FF00;
+			text-align: center;
+		}
+
+			* { text-decoration: none;}
+		</style>
+	</body>
+</html>

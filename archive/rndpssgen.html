@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Random Password Generator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  </head>
+  <body bgcolor="#1D1F21">
+  <font face="Gill Sans, Arial">
+  <font color="#FFFFFF">
+    <script>
+    jQuery.fn.center = function () {
+				this.css("position","absolute");
+				this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + 
+															$(window).scrollTop()) + "px");
+				this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + 
+															$(window).scrollLeft()) + "px");
+				return this;
+			}
+    var length = parseInt(prompt("How long do you want your password to be?"));
+    var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz`~!@#$%^&*()-_=+[{]}\|;:,./?";
+    var pass = "";
+	  for (var i=0; i<length; i++) {
+	  	var randn = Math.floor(Math.random() * chars.length);
+	  	pass += chars.substring(randn,randn+1);
+	  }
+	  document.write("<h1 id=\"content\">" + pass + "</h1>");
+	  $("#content").center();
+    </script>
+    </font>
+    </font>
+  </body>
+</html>

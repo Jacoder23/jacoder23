@@ -1,0 +1,56 @@
+body{
+	font-family: Menlo, monospace, Consolas, monospace, Incosolata, monospace;
+	background-color: black;
+	color: #00ff00;
+	font-size: 16px; 
+	font-size: 1.5vw;
+	word-wrap: break-word;
+	text-wrap: normal;
+}
+pre{
+	font-size: 16px; 
+	font-size: 1.25vw;
+	word-wrap: break-word;
+	text-wrap: normal;
+}
+a{
+	text-decoration: none;
+	color: #ff0000;
+}
+a:hover{
+	text-decoration: none;
+	color: #0000ff;
+}
+.sidenav {
+    width: 25vw;
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    right: 10px;
+    background: #666666;
+    overflow-x: hidden;
+    padding: 8px 0;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 2vw;
+    color: #00FF00;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #FF0000;
+}
+
+.main {
+    margin-left: 140px; /* Same width as the sidebar + left position in px */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
