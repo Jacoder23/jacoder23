@@ -1,0 +1,11 @@
+<a href="{{ "/" | relURL }}">Home</a>
+{{ range .Site.Menus.main }}
+<a href="{{ .URL }}">{{ .Name }}</a>
+{{ end }}<!--
+{{ with .Site.GetPage "/blog" }}
+<a href="{{ "/blog" | relURL }}">Blog</a>
+{{ end }}-->
+<a href="{{ "https://jcdr.games" | absURL }}">Games</a>
+<a href="{{ "https://twitter.com/Jacoder234" | absURL }}">Twitter</a>
+<a href="{{ "https://www.youtube.com/channel/UCdLQ-aSddS0WPnWQA87JNow" | absURL }}">Youtube</a>
+<a href="{{ "/archive/index.html" | relURL }}">Archive</a>
