@@ -1,43 +1,4 @@
-<!DOCTYPE html>
-<html lang="en-US">
-
-<head>
-  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="shortcut icon" href="https://jacoder23.com/images/favicon.png" />
-<title>Disco | Jacoder23</title>
-<meta name="title" content="Disco" />
-<meta name="description" content="" />
-<meta name="keywords" content="" />
-
-
-<meta property="og:title" content="Disco" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jacoder23.com/posts/disco/" /><meta property="og:image" content="https://jacoder23.com/images/share.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-03-26T19:25:17+08:00" />
-<meta property="article:modified_time" content="2022-03-26T19:25:17+08:00" /><meta property="og:site_name" content="Jacoder23" />
-
-
-
-
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://jacoder23.com/images/share.png"/>
-
-<meta name="twitter:title" content="Disco"/>
-<meta name="twitter:description" content=""/>
-
-
-
-<meta itemprop="name" content="Disco">
-<meta itemprop="description" content=""><meta itemprop="datePublished" content="2022-03-26T19:25:17+08:00" />
-<meta itemprop="dateModified" content="2022-03-26T19:25:17+08:00" />
-<meta itemprop="wordCount" content="0"><meta itemprop="image" content="https://jacoder23.com/images/share.png"/>
-<meta itemprop="keywords" content="" />
-<meta name="referrer" content="no-referrer-when-downgrade" />
-
-  <style>
+<style>
   body {
     font-family: Consolas, sans-serif;
     margin: auto;
@@ -97,12 +58,19 @@
 
 
   @media only screen and (max-width: 600px) {
-     
+    /* horizontal scrollbar for tables if mobile screen */
     .adaptive-table{
 	grid-template-columns: 1fr;
 	}
 	.center{
 	transform: translate(0%) !important;
+	}
+	.shadow{
+	transform: translate(0%) !important;
+	}
+	.shadow{
+	display:block;
+	width: 318px;
 	}
 }
 
@@ -138,7 +106,7 @@
   }
 
   a {
-     
+    /*color: #3273dc;*/
     color: #29adff;
   }
 
@@ -221,7 +189,7 @@
     font-size: small;
   }
 
-   
+  /* blog posts */
   ul.blog-posts {
     list-style-type: none;
     padding: unset;
@@ -282,35 +250,3 @@
     }
 
 </style>
-
-</head>
-
-<body>
-  <header><a href="/" class="title">
-  <h2>Jacoder23</h2>
-</a>
-<nav><a href="/">Home</a>
-
-<a href="https://jcdr.games">Games</a>
-<a href="https://twitter.com/Jacoder234">Twitter</a>
-<a href="https://www.youtube.com/channel/UCdLQ-aSddS0WPnWQA87JNow">Youtube</a>
-<a href="/archive/index.html">Archive</a>
-</nav>
-</header>
-  <main>
-
-<content>
-  
-</content>
-<p>
-  
-</p>
-
-  </main>
-  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
-</footer>
-
-    
-</body>
-
-</html>
