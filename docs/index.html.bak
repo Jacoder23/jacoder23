@@ -289,7 +289,7 @@
 <nav><a href="/">Home</a>
 
 <a href="https://jcdr.games">Games</a>
-<a href="https://twitter.com/Jacoder234">Twitter</a>
+<a href="https://eldritch.cafe/web/@jacoder23" the rel="me">Mastodon</a>
 <a href="https://www.youtube.com/channel/UCdLQ-aSddS0WPnWQA87JNow">Youtube</a>
 <a href="/archive/index.html">Archive</a>
 </nav>
@@ -326,7 +326,7 @@
 <div class="adaptive-table">
 	<div class="center">
 		<div class="shadow">
-			<iframe src="https://itch.io/embed/1756478?dark=true" width="552" height="167" frameborder="0"><a href="https://jacoder23.itch.io/thegadflyofgensokyo">The Gadfly of Gensokyo by Jacoder23</a></iframe>
+			<iframe style="border-radius: 8px;" src="https://itch.io/embed/1756478?dark=true" width="552" height="167" frameborder="0"><a href="https://jacoder23.itch.io/thegadflyofgensokyo">The Gadfly of Gensokyo by Jacoder23</a></iframe>
 		</div>
 				<div class="shadow">
 		<iframe style="border-radius: 8px;" src="https://www.youtube-nocookie.com/embed/mJOtWQ2gh2Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
