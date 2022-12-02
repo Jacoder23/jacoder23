@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<!-- This is for a class and I needed somewhere to host it. You can ignore this. -->
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Project Proposal</title>
+	<link href="proposalstyle.css" rel="stylesheet" type="text/css" />
+	<script src="https://cdn.jsdelivr.net/gh/ncase/nutshell@v1.0.3/nutshell.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+</head>
+
+<body>
+	<main class="container">
+	<h3>Project Proposal</h3>
+	<p><i>Title:</i> An <a href="#WhatisaZine">:interactive e-zine</a> on Filipino social media and free will using texts from the Summa Theologica of St. Aquinas</p>
+	
+	<p><i>Main Question:</i> How can today’s online audiences (netizens) engage with medieval texts?</p>
+	
+	<p><i>Medieval Studies:</i> <a href="#WhichfragmentsoftheSummaTheologica">:text</a> of the Summa Theologica of St. Aquinas</p>
+	
+	<p><i>Philippine Studies:</i> <a href="#FilipinoSocialMediaCulture">:Filipino social media culture</a></p>
+	
+	<p><i>Theoretical Framework:</i> philosophy of freedom and action; philosophy of technology</p>
+	
+	
+	
+	<h3>Why is this proposal in this format?</h3>
+	<p>To help illustrate how the interactive format might work.</p>
+	
+	<p>This is only for the consultation and will not be used for the final submission which will follow the assignment guidelines.</p>
+	
+	<a href="https://ncase.me/nutshell/">Nutshell, the web framework used.</a>
+	
+	<br/>
+	
+	<br/>
+	
+	<br/>
+	
+	<br/>
+	
+	<br/>
+	
+	<br/>
+	
+	<br/>
+	
+	<br/>
+	
+	<br/>
+	
+	<hr/>
+	
+	
+	
+	<h3>What is a Zine?</h3>
+	
+	<p>Zine is short for magazine but especially refers to independently published work often self-made by marginalized communities.</p>
+
+	<p>In recent decades, they've become less beholden to the traditional print format and e-zines or electronic zines have emerged.</p>
+
+	<p>Recently, experimentation in the medium has become popular. E-zines often have multimedia elements such as video and audio or are even interactive.</p>
+	
+	<p><a href="#Examplesofzines">:Examples of zines include...</a></p>
+	
+	
+	
+	<h4>Examples of zines</h4>
+	
+	<img src="Illustration7.png" width="100%"></img>
+	
+	<img src="Illustration6.png" width="100%"></img>
+	
+	<img src="Illustration5.png" width="100%"></img>
+	
+	
+	
+	<h4>Filipino Social Media Culture</h4>
+	
+	<p>After all, we're 2nd in the world in terms of time spent daily on the internet on average at <a href="https://newsinfo.inquirer.net/1589845/social-media-internet-craze-keep-ph-on-top-2-of-world-list">10 hours, 27 minutes</a>.</p>
+	
+	<p>Given our feeds are dictated by algorithms and machine learning, it can be questioned if we are practicing full agency when we browse social media.</p>
+	
+	<p>In addition, our politicians <a href="https://www.youtube.com/watch?v=_972Y8iwrX8">employ trolls on social media</a> to control discourse.</p>
+	
+	
+	
+		
+	<h4>Which fragments of the Summa Theologica?</h4>
+	<p>One <a href="https://www.ccel.org/a/aquinas/summa/FP/FP083.html#FPQ83OUTP1">specific example would be Question 83 on the topic of Free Will.</a> </p>
+	</main>
+	
+</body>
+
+</html>
