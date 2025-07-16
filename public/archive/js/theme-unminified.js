@@ -109,7 +109,7 @@ if (typeof(Storage) !== "undefined") {
 }
 
 function pickRand(list){
-    var shortStory = ["bucketfulofteeth", "ein", "chessgame", "mouseutopia"];
+    var shortStory = ["bucketfulofteeth", "chessgame", "mouseutopia"];
     switch(list) {
         case "shortStory":
             return shortStory[Math.floor(Math.random() * shortStory.length)] + ".html";
